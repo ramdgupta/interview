@@ -1,0 +1,49 @@
+
+.grid{
+    display: grid;
+}
+
+.filter {
+    grid-area: sidebar;
+  }
+
+  .content {
+    grid-area: content;
+  }
+
+  header {
+    grid-area: header;
+  }
+ .loading{
+     grid-area: loading;
+ }
+.container{
+    grid-template-areas:
+    "header"
+    "sidebar"
+    "loading"
+    "content"
+}
+
+@media screen and (min-width:700px){
+    .container{
+        grid-template-columns: 320px auto;
+        grid-template-areas:
+        "header loading"
+        "sidebar content"
+    }
+    .grid{
+         &.content{
+            grid-template-columns: repeat(2, 50%); 
+        } 
+    }
+    .loading{
+    }
+}
+@media screen and (min-width:1024px){
+    .grid{
+         &.content{
+            grid-template-columns: repeat(4, 25%);
+        } 
+    }
+}

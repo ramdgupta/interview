@@ -1,0 +1,32 @@
+.content{
+    grid-row-gap: 20px;
+    height:max-content;
+    .card{
+        margin-left:20px;
+    }
+  }
+.card{
+    padding:0 0 0;
+    img{
+        min-height: 100px;
+        min-width:100%;
+        height: auto;
+    }
+    .block{
+        margin-bottom: 8px;
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        justify-content: space-between;
+        padding: 0 20px 0;
+        font-weight: 600;
+        span{
+            text-align: right;
+            overflow-wrap: break-word;
+            font-weight: 400;
+        }
+    }
+    .holder{
+        padding:10px 20px 10px;
+        display: block;
+    }
+}
