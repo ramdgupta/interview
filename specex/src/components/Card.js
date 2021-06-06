@@ -14,18 +14,6 @@ function Card (launch) {
                         <div className="grid block">Successful Launch: {launch_success && <span>{launch_success ? 'true' : 'false'}</span>}</div>
                         <div className="grid block">Successful Landing: {land_success && <span>{land_success ? 'true' : 'false'}</span>}</div> 
                     <ul>
-                    {/* <li>
-                        <strong>Launch Year:</strong> 
-                        <span> {launch_year}</span>
-                    </li>
-                    <li>
-                        <strong>Successful Launch:</strong>
-                        <span> {launch_success ? 'true' : 'false'}</span>
-                    </li>
-                    <li>
-                        <strong>Successful Landing:</strong> 
-                        <span> {land_success ? 'true' : 'false'}</span>
-                    </li> */}
                 </ul>
             </article>
     )

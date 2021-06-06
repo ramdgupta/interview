@@ -1,5 +1,3 @@
-//import logo from './logo.svg';
-//import './App.css';
 import React, { useState, useEffect } from 'react'
 import Card from "./components/Card";
 import Filter from "./components/Filter";
@@ -13,16 +11,26 @@ function App() {
   const [launches, setLaunches] = useState([]);
   const [url, setUrl] = useState([]);
   const [isActive, setIsActive] = useState(false);
+  const [isMessage, setMessage] = useState(false);
+  const [value, setValue] = useState('');
+
 
   //Fetch data function
   const fetchYear= async () => {
-
-    console.log(launches)
     setLoading(true)
     try {
       const response = await fetch(url);
       let data = await response.json();
-      setLaunches(data)
+      if(data.length){
+        setMessage(false)
+        setLaunches(data)
+        console.log('DATA')
+      }
+      else{
+        setMessage(true)
+        console.log('abc')
+      }
+      
       setLoading(false);
     } catch (error) {
       console.log(error)
@@ -44,6 +52,7 @@ function App() {
     let filterValue = e.target.dataset.value;
     console.log(filterValue)
     setIsActive(stateValue)
+    setValue(filterValue)
     if(filterTag === 'year'){
       setUrl(`${yearFilter}${filterValue}`)
     }
@@ -68,6 +77,7 @@ function App() {
           })}
         </section>
         {loading && <h2 className='loading grid'>Loading...</h2>}
+        {!loading && isMessage && <h2 className='loading grid alert'>Data is not avilable {value}</h2>}
 
     </>
   );
